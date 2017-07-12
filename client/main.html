@@ -1,16 +1,19 @@
 <head>
-  <title>soobdoo2</title>
+    <title>soobdoo2</title>
 </head>
 
 <body>
-  <h1>soobdoo2</h1>
+<h1>soobdoo2</h1>
 
-  {{> startSubtitle}}
+{{> startTimer}}
 
 </body>
 
-<template name="startSubtitle">
-  <button>Começar</button>
-  <p> {{subtitleLine.text}} </p>
-  <p> {{subtitleWord.word}}/{{subtitleWord.frequency}} </p>
+<template name="startTimer">
+    <button>Começar</button>
+    <p>
+        {{subtitleLine.text}}<br/>
+        {{subtitleWord.word}}/{{subtitleWord.frequency}}<br/>
+        {{timer}}
+    </p>
 </template>
