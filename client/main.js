@@ -1,22 +1,36 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import SubtitlesLines from '/model/SubtitlesLines';
+import SubtitlesWords from '/model/SubtitlesWords';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
+Template.startSubtitle.onCreated(function () {
+  this.timer = new ReactiveVar(0);
 });
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
+const getCurrentSubtitleLine = () => {
+  const subtitleLine = SubtitlesLines.findOne({secondStart: Template.instance().timer.get()})
+  return subtitleLine ? subtitleLine : '';
+};
+
+Template.startSubtitle.helpers({
+  subtitleLine() {
+    return getCurrentSubtitleLine();
   },
+    subtitleWord() {
+      const words = getCurrentSubtitleLine().text.split(' ').map(word => word.toLowerCase());
+      console.log(words);
+      return SubtitlesWords.find({word: {$in: words} }, {sort: {frequency: 1}, limit: 1}).fetch()[0];
+    },
 });
 
-Template.hello.events({
+Template.startSubtitle.events({
   'click button'(event, instance) {
     // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+    setInterval(() => {
+    	instance.timer.set(instance.timer.get() + 1);
+    	console.log(instance.timer.get());
+    }, 1000);
   },
 });
