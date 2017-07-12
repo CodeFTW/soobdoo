@@ -27,9 +27,6 @@ Template.startTimer.helpers({
         return Template.instance().timer.get();
     }
 });
-Template.startTimer.onCreated(function () {
-    this.timer = new ReactiveVar(0);
-});
 
 Template.startTimer.events({
     'click button'(event, instance) {
