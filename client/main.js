@@ -22,7 +22,11 @@ Template.startTimer.helpers({
         return getCurrentSubtitleLine();
     },
     subtitleWord() {
-        const words = getCurrentSubtitleLine().text.split(' ').map(word => word.toLowerCase());
+        const currentSubtitleLine = getCurrentSubtitleLine().text;
+        if(!currentSubtitleLine)
+            return '';
+
+        const words = currentSubtitleLine.split(' ').map(word => word.toLowerCase());
         console.log(words);
         return SubtitlesWords.find({word: {$in: words}}, {sort: {frequency: 1}, limit: 1}).fetch()[0];
     },

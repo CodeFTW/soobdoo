@@ -1,1 +1,25 @@
 /* CSS declarations go here */
+body  {
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background: #333;
+    height: 800px;
+}
+
+.container-item{
+    display: flex;
+    font-size: 2em;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background: #e4e4e4;
+    text-align: left;
+
+}

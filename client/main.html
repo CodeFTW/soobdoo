@@ -3,17 +3,26 @@
 </head>
 
 <body>
-<h1>soobdoo2</h1>
 
 {{> startTimer}}
 
 </body>
 
+
 <template name="startTimer">
-    <button>Começar</button>
-    <p>
-        {{subtitleLine.text}}<br/>
-        {{subtitleWord.word}}/{{subtitleWord.frequency}}<br/>
-        {{timer}}
-    </p>
+
+    <div class="container">
+        <div class="container-item">
+            <button>Começar</button>
+        </div>
+        <div class="container-item">
+            {{subtitleLine.text}}
+        </div>
+        <div class="container-item">
+            {{subtitleWord.word}}/{{subtitleWord.frequency}}
+        </div>
+            <div class="container-item">
+            {{timer}}
+        </div>
+    </div>
 </template>

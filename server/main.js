@@ -27,8 +27,8 @@ Meteor.startup(() => {
         text = text.replace(',', '');
         text = text.replace('.', '');
         text = text.replace('-', '');
-        //TODO verificar qual eh a legenda
-        const result = SubtitlesLines.upsert({subtitleNumber},
+
+        SubtitlesLines.upsert({subtitleNumber},
             {
                 subtitleNumber,
                 timeStart,
