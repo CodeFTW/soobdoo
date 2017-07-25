@@ -32,8 +32,9 @@ Meteor.startup(() => {
             {
                 subtitleNumber,
                 timeStart,
-                secondStart,
+                milliSecondsStart: TimeConverter.fromTimeToMilliseconds(timeStart),
                 timeEnd,
+                milliSecondsEnd: TimeConverter.fromTimeToMilliseconds(timeEnd),
                 text,
             });
 

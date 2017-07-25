@@ -10,7 +10,7 @@ Template.startTimer.onCreated(function () {
 });
 
 const getCurrentSubtitleLine = () => {
-    const subtitleLine = SubtitlesLines.findOne({secondStart: Template.instance().timer.get()})
+    const subtitleLine = SubtitlesLines.findOne({milliSecondsStart: Template.instance().timer.get()})
     return subtitleLine ? subtitleLine : '';
 };
 

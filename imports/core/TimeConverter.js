@@ -7,9 +7,7 @@ const TimeConverter = {
         const [hours, minutes, secondsWithMilliseconds] = time.split(':');
         let [seconds, milliseconds] = secondsWithMilliseconds.split(',');
 
-        return milliseconds + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
-
-
+        return parseInt(milliseconds) + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
     }
 };
 
