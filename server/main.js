@@ -4,7 +4,7 @@ import SubtitlesLines from '/model/SubtitlesLines';
 import SubtitlesWords from '/model/SubtitlesWords';
 
 Meteor.startup(() => {
-    const data = fs.readFileSync("/home/filipe/Documents/codeftw/ws/soobdoo/subtitles/New.Girl.S01E01-2.srt", "utf8")
+    const data = fs.readFileSync(Meteor.rootPath + "/../../../../../subtitles/New.Girl.S01E01-2.srt", "utf8")
     const lines = data.split('\n');
 
     let i = 0;
