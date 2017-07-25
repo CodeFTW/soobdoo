@@ -13,16 +13,21 @@
 
     <div class="container">
         <div class="container-item">
-            <button>Começar</button>
-        </div>
-        <div class="container-item">
             {{subtitleLine.text}}
         </div>
         <div class="container-item">
             {{subtitleWord.word}}/{{subtitleWord.frequency}}
         </div>
-            <div class="container-item">
+        <div class="container-item">
             {{timer}}
+        </div>
+        <div class="container-item" style="display: inline-block;">
+          <button class="js-play">
+            play
+          </button>
+          <button class="js-pause">
+            pause
+          </button>
         </div>
     </div>
 </template>
