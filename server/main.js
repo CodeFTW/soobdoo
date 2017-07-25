@@ -2,6 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import fs from 'fs';
 import SubtitlesLines from '/model/SubtitlesLines';
 import SubtitlesWords from '/model/SubtitlesWords';
+import TimeConverter from '/imports/core/TimeConverter';
 
 Meteor.startup(() => {
     const data = fs.readFileSync(Meteor.rootPath + "/../../../../../subtitles/New.Girl.S01E01-2.srt", "utf8")
@@ -21,9 +22,6 @@ Meteor.startup(() => {
             ++i;
         }
         ++i;
-        let secondStart = timeStart.split(':')[2].split(',')[0];
-        secondStart = secondStart.indexOf('0') !== -1 ? secondStart.substring(1) : secondStart;
-        secondStart = parseInt(secondStart);
 
         text = text.replace('\r', '');
         text = text.replace(',', '');
