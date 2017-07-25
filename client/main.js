@@ -10,7 +10,10 @@ Template.startTimer.onCreated(function () {
 });
 
 const getCurrentSubtitleLine = () => {
-    const subtitleLine = SubtitlesLines.findOne({milliSecondsStart: Template.instance().timer.get()})
+    const subtitleLine = SubtitlesLines.findOne({
+        milliSecondsStart: {$lte: Template.instance().timer.get()},
+        milliSecondsEnd: {$gte: Template.instance().timer.get()}
+    });
     return subtitleLine ? subtitleLine : '';
 };
 
@@ -32,7 +35,7 @@ Template.startTimer.events({
     'click button'(event, instance) {
         // increment the counter when button is clicked
         setInterval(() => {
-            instance.timer.set(instance.timer.get() + 1);
+            instance.timer.set(instance.timer.get() + 1000);
             console.log(instance.timer.get());
         }, 1000);
     },
