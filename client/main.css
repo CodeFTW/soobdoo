@@ -9,7 +9,7 @@ body  {
     align-items: center;
     justify-items: center;
     background: #333;
-    height: 800px;
+    height: 100vh;
 }
 
 .container-item{
@@ -22,4 +22,12 @@ body  {
     background: #e4e4e4;
     text-align: left;
 
+}
+
+.player-buttons {
+    background: #000;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-content: space-between;
 }

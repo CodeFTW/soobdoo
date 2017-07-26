@@ -8,6 +8,7 @@
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "fs": "0.0.1-security",
+    "google-translate-api": "^2.3.0",
     "meteor-node-stubs": "~0.2.4"
   },
   "devDependencies": {

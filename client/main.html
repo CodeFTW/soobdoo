@@ -16,18 +16,37 @@
             {{subtitleLine.text}}
         </div>
         <div class="container-item">
-            {{subtitleWord.word}}/{{subtitleWord.frequency}}
+            {{subtitleWord.word}}/{{subtitleWord.translatedWord}}/{{subtitleWord.frequency}}
         </div>
         <div class="container-item">
             {{timer}}
         </div>
-        <div class="container-item" style="display: inline-block;">
-          <button class="js-play">
-            play
-          </button>
-          <button class="js-pause">
-            pause
-          </button>
+        <div class="player-buttons">
+            <div>
+                <button class="js-back">
+                    back
+                </button>
+            </div>
+            {{#if playerHandler}}
+
+                <div>
+                    <button class="js-pause">
+                        pause
+                    </button>
+                </div>
+            {{else}}
+                <div>
+                    <button class="js-play">
+                        play
+                    </button>
+                </div>
+            {{/if}}
+
+            <div>
+                <button class="js-forward">
+                    forward
+                </button>
+            </div>
         </div>
     </div>
 </template>

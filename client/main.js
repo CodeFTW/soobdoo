@@ -8,6 +8,7 @@ import './main.html';
 
 Template.startTimer.onCreated(function () {
     this.timer = new ReactiveVar(0);
+    this.playerHandler = new ReactiveVar(null);
 });
 
 const getCurrentSubtitleLine = () => {
@@ -24,7 +25,7 @@ Template.startTimer.helpers({
     },
     subtitleWord() {
         const currentSubtitleLine = getCurrentSubtitleLine().text;
-        if(!currentSubtitleLine)
+        if (!currentSubtitleLine)
             return '';
 
         const words = currentSubtitleLine.split(' ').map(word => word.toLowerCase());
@@ -33,19 +34,28 @@ Template.startTimer.helpers({
     },
     timer() {
         return TimeConverter.fromMilliseconsToTime(Template.instance().timer.get());
+    },
+    playerHandler() {
+        return Template.instance().playerHandler.get();
     }
 });
 
 Template.startTimer.events({
     'click .js-play'(event, instance) {
-      // increment the counter when button is clicked
-      instance.playerHandler = Meteor.setInterval(() => {
-          instance.timer.set(instance.timer.get() + 1000);
-          console.log(instance.timer.get());
-      }, 1000);
-    },
+        instance.playerHandler.set(Meteor.setInterval(() => {
+            instance.timer.set(instance.timer.get() + 1000);
+            console.log(instance.timer.get());
+        }, 1000));
 
+    },
     'click .js-pause'(event, instance) {
-      Meteor.clearInterval(instance.playerHandler);
-    }
+        Meteor.clearInterval(instance.playerHandler.get());
+        instance.playerHandler.set(null);
+    },
+    'click .js-back'(event, instance) {
+        instance.timer.set(instance.timer.get() - 1000);
+    },
+    'click .js-forward'(event, instance) {
+        instance.timer.set(instance.timer.get() + 1000);
+    },
 });
