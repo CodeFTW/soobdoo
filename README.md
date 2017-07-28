@@ -16,3 +16,7 @@ meteor run android
 
 # Run your device
 meteor run android-device
+
+
+# CSS Flex
+To Learn use this: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
