@@ -1,52 +1,47 @@
 <head>
-    <title>soobdoo2</title>
+    <title>Soobdoo</title>
+    <link rel="stylesheet" href="./reset.css">
+
 </head>
 
 <body>
-
-{{> startTimer}}
-
+    {{> startTimer}}
 </body>
 
 
 <template name="startTimer">
 
-    <div class="container">
-        <div class="container-item">
-            {{subtitleLine.text}}
-        </div>
-        <div class="container-item">
-            {{subtitleWord.word}}/{{subtitleWord.translatedWord}}/{{subtitleWord.frequency}}
-        </div>
-        <div class="container-item">
-            {{timer}}
-        </div>
-        <div class="player-buttons">
-            <div>
-                <button class="js-back">
-                    back
-                </button>
+    <main class="principal">
+    
+    <section class="legends-text-word-timer">
+        <div class="container">
+            <div class="item legend">
+                {{subtitleLine.text}}
             </div>
+            <div class="item word">
+                {{# if subtitleWord}}
+                     {{subtitleWord.word}} / {{subtitleWord.translatedWord}} / {{subtitleWord.frequency}}
+                {{/if}}
+            </div>
+            <div class="item timer">
+                {{timer}}
+            </div>
+        </div>
+    </section>
+
+
+     <section class="player-buttons">
+        <div class="container">
+            <button class="js-back"> &#60;&#60; </button>
             {{#if playerHandler}}
-
-                <div>
-                    <button class="js-pause">
-                        pause
-                    </button>
-                </div>
+            <button class="js-pause"> &#124;&#124; </button>
             {{else}}
-                <div>
-                    <button class="js-play">
-                        play
-                    </button>
-                </div>
+            <button class="js-play"> &#62; </button>
             {{/if}}
-
-            <div>
-                <button class="js-forward">
-                    forward
-                </button>
-            </div>
+            <button class="js-forward"> &#62;&#62; </button>
         </div>
-    </div>
+    </section> 
+    
+    </main>
+
 </template>
