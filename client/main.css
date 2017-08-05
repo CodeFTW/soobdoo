@@ -1,91 +1,111 @@
 
-
-/** WEB DESKTOP */
-
 body {
-  	background-color: #F2F5F7;
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    
 }
 
-
-
-.legends-text-word-timer .container{
+.principal {
     display: flex;
-    flex-flow: column wrap;
-    align-items: center; 
-    justify-content: space-between;  
-    margin : 30px;
-
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    background: #F2F5F7;
 }
 
-.item {
-    
-    margin: 1%;
-    width: 100%;
-    text-align: center;
-    width: 100%;
-	height: 100%;
-
-    /* box-shadow: 4px 4px 4px #555; */
+.title-app {
+    display: flex;
+    justify-content: center;
+    height: 8%;
+    background: white;
 }
 
-.legend {
-    flex-grow: 2;
-    font-size: 2.3em;
-    /* background: lightsalmon; */
-    font-weight: bold;
-    height: 100px;
-    color: lightcoral;
-    
-    
+.title-app .title-app-desc {
+    color: gray;
+    font-size: 1em;
 }
 
-.word {
-    font-size: 2em;
-    font-weight: bold;
-    /* background: lightcoral; */
-    color: lightslategray;
-}
-
-.timer {
-    font-size: 2em;
-    /* background: lightgreen; */
-    color: lightcoral;
-    font-weight: bold;
+.legends-text-word-timer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
+    height: 30%;
 
 }
 
 
 .player-buttons .container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-} 
+    align-self: flex-end;
 
-button {
-    color: grey;
-    font-weight: bold;
-    width: 5%;
-    height: 32px;
-    font-size: 16px; 
+    
+    height: 20%;
 }
 
+.button {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+    color: grey;
+    font-weight: bold;
+}
+
+
+
 button:hover {
+    color: black;
     box-shadow: 1px 1px 1px 1px lightseagreen;
     /* height: 40px; */
 }
 
+.legends-text-word-timer .container .itens {
+    display: flex; 
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+}
+
+.item {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 300%;
+}
+
+.legend {
+color: lightcoral;
+} 
 
 
 
+.timer {
+    
+    color: lightcoral;
+} 
 
-/* MOBILE */
-@media(max-width: 768px) {
-
-  .legend {
-      font-size: 1.4em;
-      height: auto;
-  }
+  
+@media (min-width: 300px) {
+.legends-text-word-timer .container {
+     
+    height: 15%;
 
 }
+
+.button {
+    width: 100%;
+    height: 100%;
+    font-size: 4em;
+    color: grey;
+    font-weight: bold;
+}
+
+
+
+}
+

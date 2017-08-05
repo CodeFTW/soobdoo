@@ -1,46 +1,47 @@
 <head>
     <title>Soobdoo</title>
-    <link rel="stylesheet" href="./reset.css">
-
+   <meta name="viewport" content="width=device-width">
 </head>
 
 <body>
     {{> startTimer}}
 </body>
 
-
 <template name="startTimer">
 
     <main class="principal">
     
-    <section class="legends-text-word-timer">
-        <div class="container">
-            <div class="item legend">
-                {{subtitleLine.text}}
+        <section class="title-app">
+            <h3 class="title-app-desc">Soobdoo</h3>
+        </section>
+
+        <section class="legends-text-word-timer">
+          <div class="container">
+                <ul class="itens">
+                    <li class="item legend">{{subtitleLine.text}}</li>
+                    <li class="item word">
+                        {{# if subtitleWord}}
+                          {{subtitleWord.word}} / {{subtitleWord.translatedWord}} / {{subtitleWord.frequency}}
+                        {{/if}}
+                    </li>
+                    <li class="item timer">{{timer}}</li>
+                </ul>
             </div>
-            <div class="item word">
-                {{# if subtitleWord}}
-                     {{subtitleWord.word}} / {{subtitleWord.translatedWord}} / {{subtitleWord.frequency}}
+                     
+        </section>
+
+
+        <section class="player-buttons">
+            <div class="container">
+                <button class="js-back button"> &#60;&#60; </button>
+                {{#if playerHandler}}
+                <button class="js-pause button"> &#124;&#124; </button>
+                {{else}}
+                <button class="js-play button"> &#62; </button>
                 {{/if}}
+                <button class="js-forward button"> &#62;&#62; </button>
             </div>
-            <div class="item timer">
-                {{timer}}
-            </div>
-        </div>
-    </section>
-
-
-     <section class="player-buttons">
-        <div class="container">
-            <button class="js-back"> &#60;&#60; </button>
-            {{#if playerHandler}}
-            <button class="js-pause"> &#124;&#124; </button>
-            {{else}}
-            <button class="js-play"> &#62; </button>
-            {{/if}}
-            <button class="js-forward"> &#62;&#62; </button>
-        </div>
-    </section> 
+        </section> 
     
     </main>
 
