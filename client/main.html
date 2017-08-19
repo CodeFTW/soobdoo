@@ -1,6 +1,12 @@
 <head>
     <title>Soobdoo</title>
-   <meta name="viewport" content="width=device-width">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Legendas auxiliares com tradução de palavras menos recorrentes">
+    <meta name="author" content="Soobdoo - CodeFTW">
+
 </head>
 
 <body>
@@ -9,13 +15,14 @@
 
 <template name="startTimer">
 
-    <main class="principal">
+    <div class="main">
     
-        <section class="title-app">
+        <div class="title-app">
             <h3 class="title-app-desc">Soobdoo</h3>
-        </section>
+            
+        </div>
 
-        <section class="legends-text-word-timer">
+        <div class="legends-text-word-timer">
           <div class="container">
                 <ul class="itens">
                     <li class="item legend">{{subtitleLine.text}}</li>
@@ -28,10 +35,10 @@
                 </ul>
             </div>
                      
-        </section>
+        </div>
 
 
-        <section class="player-buttons">
+        <div class="player-buttons">
             <div class="container">
                 <button class="js-back button"> &#60;&#60; </button>
                 {{#if playerHandler}}
@@ -40,9 +47,12 @@
                 <button class="js-play button"> &#62; </button>
                 {{/if}}
                 <button class="js-forward button"> &#62;&#62; </button>
+                <!--<img id="lampada" class="lampada-js"  src="https://www.devfuria.com.br/javascript/code-lampada/lampada-on.gif" alt="lampada"/>-->
             </div>
-        </section> 
+        </div> 
     
-    </main>
+     
+
+    </div>
 
 </template>
