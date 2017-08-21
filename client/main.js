@@ -58,13 +58,5 @@ Template.startTimer.events({
     },
     'click .js-forward' (event, instance) {
         instance.timer.set(instance.timer.get() + 1000);
-    },
-    'click .lampada-js' (event) {
-        element = event.currentTarget;
-        if (element.src.match("lampada-on")) {
-            element.src = "https://www.devfuria.com.br/javascript/code-lampada/lampada-off.gif";
-        } else {
-            element.src = "https://www.devfuria.com.br/javascript/code-lampada/lampada-on.gif";
-        }
     }
 });
