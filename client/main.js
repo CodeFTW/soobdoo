@@ -1,20 +1,21 @@
-import {Template} from 'meteor/templating';
-import {ReactiveVar} from 'meteor/reactive-var';
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 import SubtitlesLines from '/model/SubtitlesLines';
 import SubtitlesWords from '/model/SubtitlesWords';
 import TimeConverter from '/imports/core/TimeConverter';
 
+
 import './main.html';
 
-Template.startTimer.onCreated(function () {
+Template.startTimer.onCreated(function() {
     this.timer = new ReactiveVar(0);
     this.playerHandler = new ReactiveVar(null);
 });
 
 const getCurrentSubtitleLine = () => {
     const subtitleLine = SubtitlesLines.findOne({
-        milliSecondsStart: {$lte: Template.instance().timer.get()},
-        milliSecondsEnd: {$gte: Template.instance().timer.get()}
+        milliSecondsStart: { $lte: Template.instance().timer.get() },
+        milliSecondsEnd: { $gte: Template.instance().timer.get() }
     });
     return subtitleLine ? subtitleLine : '';
 };
@@ -30,7 +31,7 @@ Template.startTimer.helpers({
 
         const words = currentSubtitleLine.split(' ').map(word => word.toLowerCase());
         // console.log(words);
-        return SubtitlesWords.find({word: {$in: words}}, {sort: {frequency: 1}, limit: 1}).fetch()[0];
+        return SubtitlesWords.find({ word: { $in: words } }, { sort: { frequency: 1 }, limit: 1 }).fetch()[0];
     },
     timer() {
         return TimeConverter.fromMilliseconsToTime(Template.instance().timer.get());
@@ -41,21 +42,21 @@ Template.startTimer.helpers({
 });
 
 Template.startTimer.events({
-    'click .js-play'(event, instance) {
+    'click .js-play' (event, instance) {
         instance.playerHandler.set(Meteor.setInterval(() => {
             instance.timer.set(instance.timer.get() + 1000);
             console.log(instance.timer.get());
         }, 1000));
 
     },
-    'click .js-pause'(event, instance) {
+    'click .js-pause' (event, instance) {
         Meteor.clearInterval(instance.playerHandler.get());
         instance.playerHandler.set(null);
     },
-    'click .js-back'(event, instance) {
+    'click .js-back' (event, instance) {
         instance.timer.set(instance.timer.get() - 1000);
     },
-    'click .js-forward'(event, instance) {
+    'click .js-forward' (event, instance) {
         instance.timer.set(instance.timer.get() + 1000);
-    },
+    }
 });

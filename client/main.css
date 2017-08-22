@@ -1,91 +1,188 @@
+/**
 
+    CSS INITIALIZE - SOOBDOO
 
-/** WEB DESKTOP */
+**/
 
-body {
-  	background-color: #F2F5F7;
-    font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    
+html,
+body,
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1200px;
+    background: #F2F5F7;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
+/**
+   
+   TITLE OF APP
 
-.legends-text-word-timer .container{
+**/
+
+.title-app {
+    display: flex;
+    justify-content: flex-start;
+    height: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* background: white;*/
+}
+
+.title-app .title-app-desc {
+    color: gray;
+    font-size: 1em;
+}
+
+
+/**
+
+    LEGENDS, WORDS AND TIMER
+
+**/
+
+.legends-text-word-timer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.legends-text-word-timer .container .itens {
     display: flex;
     flex-flow: column wrap;
-    align-items: center; 
-    justify-content: space-between;  
-    margin : 30px;
-
+    /*justify-content: space-around;*/
+    align-items: center;
+    padding: 5%;
+    width: 100%;
 }
 
 .item {
-    
-    margin: 1%;
-    width: 100%;
-    text-align: center;
-    width: 100%;
-	height: 100%;
-
-    /* box-shadow: 4px 4px 4px #555; */
+    display: block;
+    text-decoration: none;
+    margin: 8%;
 }
 
 .legend {
-    flex-grow: 2;
-    font-size: 2.3em;
-    /* background: lightsalmon; */
-    font-weight: bold;
-    height: 100px;
+    font-size: 1.9em;
     color: lightcoral;
-    
-    
 }
 
 .word {
-    font-size: 2em;
-    font-weight: bold;
-    /* background: lightcoral; */
-    color: lightslategray;
+    font-size: 2.1em;
 }
 
 .timer {
-    font-size: 2em;
-    /* background: lightgreen; */
+    font-size: 2.5em;
     color: lightcoral;
-    font-weight: bold;
-    
-
 }
 
+
+/**
+
+    PLAYER BUTTONS
+
+**/
 
 .player-buttons .container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-} 
+    align-self: flex-end;
+    padding: .7%;
+}
 
-button {
+.button {
+    width: 20%;
+    font-size: 2em;
     color: grey;
     font-weight: bold;
-    width: 5%;
-    height: 32px;
-    font-size: 16px; 
 }
 
 button:hover {
+    color: black;
     box-shadow: 1px 1px 1px 1px lightseagreen;
     /* height: 40px; */
 }
 
 
+/** 
 
+    MEDIA QUERIES ADAPTER RESPONSIVES
 
+**/
 
-/* MOBILE */
-@media(max-width: 768px) {
+@media (min-width: 500px) {
+    .title-app {
+        height: 15%;
+    }
+    .item {
+        margin: 1%;
+    }
+    .legend {
+        font-size: 1.3em;
+    }
+    .word {
+        font-size: 1.6em;
+    }
+    .timer {
+        font-size: 1.8em;
+    }
+    .button {
+        width: 15%;
+        font-size: 1.5em;
+    }
+}
 
-  .legend {
-      font-size: 1.4em;
-      height: auto;
-  }
+@media (min-width: 700px) {
+    .title-app {
+        justify-content: center;
+        font-size: 1.6em;
+        height: 10%;
+    }
+    .item {
+        margin: 4%;
+    }
+    .legend {
+        font-size: 3.5em;
+    }
+    .word {
+        font-size: 2.4em;
+    }
+    .timer {
+        font-size: 5em;
+    }
+    .button {
+        width: 50%;
+        font-size: 3em;
+    }
+}
 
+@media (min-width: 800px) {
+    .title-app {
+        justify-content: center;
+        font-size: 2em;
+        height: 10%;
+    }
+    .item {
+        margin: 4%;
+    }
+    .legend {
+        font-size: 4em;
+    }
+    .word {
+        font-size: 3.2em;
+    }
+    .timer {
+        font-size: 6em;
+    }
+    .button {
+        width: 50%;
+        font-size: 3em;
+    }
 }
